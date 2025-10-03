@@ -93,7 +93,7 @@ return {
     --- =================== -- Suported languages -- ================== ---
 
     local servers = {
-      -- ts_ls = {},
+      ts_ls = {},
       ruff = {},
       pylsp = {
         settings = {
@@ -112,15 +112,15 @@ return {
         },
       },
 
-      -- html = { filetypes = { 'html', 'twig', 'hbs' } },
+      html = { filetypes = { 'html', 'twig', 'hbs' } },
       clangd = {},
-
-      -- cssls = {},
+      bashls = {},
+      cssls = {},
       -- tailwindcss = {},
       -- dockerls = {},
       -- sqlls = {},
       -- terraformls = {},
-      -- jsonls = {},
+      jsonls = {},
       -- yamlls = {},
 
       lua_ls = {

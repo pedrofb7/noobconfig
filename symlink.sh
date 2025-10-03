@@ -1,5 +1,3 @@
-#!/bin/bash
-
 #---------------------------
 # Variables
 # --------------------------
@@ -11,7 +9,7 @@ tmuxdir="$HOME/.tmux.conf"
 # Creating the symlink
 # --------------------------
 
-ln -s "$(pwd)/nvim" $nvimdir
-ln -s "$(pwd)/.tmux.conf" $tmuxdir
+ln -s "$(pwd)/nvim" "$nvimdir"
+ln -s "$(pwd)/.tmux.conf" "$tmuxdir"
 
-tmux source-file $tmuxdir
+tmux source-file "$tmuxdir"
