@@ -5,6 +5,7 @@ PACKAGES=(
     "nvim"
     "tmux"
     "yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick"
+    "gum"
 )
 
 # Installing the packages

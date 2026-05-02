@@ -1,50 +1,76 @@
+#!/bin/bash
+
 #---------------------------
 # Variables
 #--------------------------
-
-nvimdir="$HOME/.config/nvim"
-tmuxdir="$HOME/.tmux.conf"
+NVIM_TARGET="$HOME/.config/nvim"
+TMUX_TARGET="$HOME/.tmux.conf"
+DOT_DIR=$(pwd)
 
 #---------------------------
 # Functions
 #--------------------------
-what_to_do() {
 
-    printf "There is already a Neovim config file, what do you want to do?\n\n"
-    printf "0.Keep current\n"
-    printf "1.Replace (the current configs will be moved elsewhere)\n"
-    printf "2.Erase and replace (this will erase the current configs permanently!!)\n\n"
+# Header Display
+header() {
+    gum style \
+        --foreground 212 --border-foreground 212 --border double \
+        --align center --width 50 --margin "1 2" --padding "2 4" \
+        "NOOBCONFIG" "v2.0 - dotfiles installer"
+}
 
-    option=10
+manage_config() {
+    local src="$1"	#the new config
+    local target="$2"	#the diretory
+    local name="$3"	#simple name
 
-    while [ $option -ne 0 ] && [ $option -ne 1 ] && [ $option -ne 2 ]; do
 
-        read option
+    gum style --foreground 86 "Checking configuration for: $name"
 
-        case $option in
-        0) echo "ok then" ;;
-        1) echo "replacing" ;;
-        2) echo "erasing and replacing" ;;
-        *) echo "invalid option, seletc 0, 1, or 2:\n" ;;
+    if [ ! -e "$target" ]; then
+        echo "Creating initial symlink..."
+        ln -s "$src" "$target"
+        gum style --foreground 46 "✓ $name linked successfully."
+    else
+
+        ACTION=$(gum choose --header "Existing config found for $name. What to do next?" \
+            "Keep current" \
+            "Replace (Backup old)" \
+            "Erase and Replace")
+
+        case "$ACTION" in
+            "Keep current")
+                echo "Skipping $name."
+		;;
+            "Replace (Backup old)")
+                mv "$target" "${target}.bak"
+                ln -s "$src" "$target"
+                gum style --foreground 46 "✓ $name backed up to ${target}.bak and relinked."
+                ;;
+            "Erase and Replace")
+                if gum confirm "DANGER: This will permanently delete your old $name config. Proceed?"; then
+                    rm -rf "$target"
+                    ln -s "$src" "$target"
+                    gum style --foreground 196 "🗑️ $name erased and replaced."
+                else
+                    echo "Action cancelled."
+                fi
+                ;;
         esac
-    done
+    fi
     printf "\n"
 }
 
 #---------------------------------------
-# Creating the symlink
+# Execution
 #---------------------------------------
 
-#-------------- Neovim -----------------
-if [ ! -d $nvimdir ]; then
-    ln -s "$(pwd)/nvim" "$nvimdir"
-else
-    what_to_do
-fi
+#Begin
+clear
+header
 
-#------------ Tmux --------------------
-if [ ! -d $nvimdir ]; then
-    ln -s "$(pwd)/.tmux.conf" "$tmuxdir"
-else
-    what_to_do
-fi
+#Configuring
+manage_config "$DOT_DIR/nvim" "$NVIM_TARGET" "Neovim"
+manage_config "$DOT_DIR/.tmux.conf" "$TMUX_TARGET" "Tmux"
+
+gum style --faint "Installation complete. Happy hacking!"
