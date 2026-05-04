@@ -30,5 +30,6 @@ require('lazy').setup {
     --Importing plugins --
 
     { import = 'config.plugins' },
+    { import = 'config.plugins.lsp'},
   },
 }
