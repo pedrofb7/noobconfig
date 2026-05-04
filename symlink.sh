@@ -70,7 +70,7 @@ clear
 header
 
 #Configuring
-manage_config "$DOT_DIR/nvim" "$NVIM_TARGET" "Neovim"
-manage_config "$DOT_DIR/.tmux.conf" "$TMUX_TARGET" "Tmux"
+manage_config "$DOT_DIR/.config/nvim" "$NVIM_TARGET" "Neovim"
+manage_config "$DOT_DIR/.config/.tmux.conf" "$TMUX_TARGET" "Tmux"
 
 gum style --faint "Installation complete. Happy hacking!"
