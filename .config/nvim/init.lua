@@ -1,8 +1,5 @@
 --Requiring other files --
 
 require("start")
-require("config.lazy")
-require("config.lsp")
+require("config")
 
---temporary for testing
-vim.cmd [[colorscheme unokai]]
