@@ -5,6 +5,7 @@
 #--------------------------
 NVIM_TARGET="$HOME/.config/nvim"
 TMUX_TARGET="$HOME/.tmux.conf"
+YAZI_TARGET="$HOME/.config/yazi"
 DOT_DIR=$(pwd)
 
 #---------------------------
@@ -72,5 +73,6 @@ header
 #Configuring
 manage_config "$DOT_DIR/.config/nvim" "$NVIM_TARGET" "Neovim"
 manage_config "$DOT_DIR/.config/.tmux.conf" "$TMUX_TARGET" "Tmux"
+manage_config "$DOT_DIR/.config/yazi" "$YAZI_TARGET" "Yazi"
 
 gum style --faint "Installation complete. Happy hacking!"
