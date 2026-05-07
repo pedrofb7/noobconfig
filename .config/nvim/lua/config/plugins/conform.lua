@@ -1,17 +1,26 @@
 return {
+
   'stevearc/conform.nvim',
-  opts = {},
+
   config = function()
     require('conform').setup {
+
       formatters_by_ft = {
+
         lua = { 'stylua' },
-        -- Conform will run multiple formatters sequentially
         python = { 'isort', 'black' },
-        -- You can customize some of the format options for the filetype (:help conform.format)
-        rust = { 'rustfmt', lsp_format = 'fallback' },
-        -- Conform will run the first available formatter
+        rust = { 'rustywind' },
+        sh = { 'shfmt' },
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
       },
+    }
+
+    -- To override some defaults of shmt formatter --
+    -- (this took me an awful amount of time to work it out)
+    require('conform').formatters.shfmt = {
+      append_args = { '-i', '2' },
+      -- The base args are { "-filename", "$FILENAME" } so the final args will be
+      -- { "-filename", "$FILENAME", "-i", "2" }
     }
 
     vim.api.nvim_create_autocmd('BufWritePre', {
