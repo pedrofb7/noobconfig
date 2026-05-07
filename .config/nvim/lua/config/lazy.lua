@@ -31,6 +31,6 @@ require('lazy').setup {
 
     { import = 'config.plugins' },
     { import = 'config.plugins.colorscheme' },
-    { import = 'config.plugins.lsp'},
+    { import = 'config.plugins.lsp' },
   },
 }

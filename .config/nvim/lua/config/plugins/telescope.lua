@@ -1,22 +1,22 @@
 return {
-    'nvim-telescope/telescope.nvim', version = '*',
-    dependencies = {
-        'nvim-lua/plenary.nvim',
-        -- optional but recommended
-        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    },
+  'nvim-telescope/telescope.nvim',
+  version = '*',
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    -- optional but recommended
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+  },
 
-     config = function()
-
-                  -- Making the background transparent --
-        vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = 'none' })
-        vim.api.nvim_set_hl(0, 'TelescopeBorder', { bg = 'none' })
-        vim.api.nvim_set_hl(0, 'TelescopePromptNormal', { bg = 'none' })
-        vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { bg = 'none' })
-        vim.api.nvim_set_hl(0, 'TelescopeResultsNormal', { bg = 'none' })
-        vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { bg = 'none' })
-        vim.api.nvim_set_hl(0, 'TelescopePreviewNormal', { bg = 'none' })
-        vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { bg = 'none' })
+  config = function()
+    -- Making the background transparent --
+    vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = 'none' })
+    vim.api.nvim_set_hl(0, 'TelescopeBorder', { bg = 'none' })
+    vim.api.nvim_set_hl(0, 'TelescopePromptNormal', { bg = 'none' })
+    vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { bg = 'none' })
+    vim.api.nvim_set_hl(0, 'TelescopeResultsNormal', { bg = 'none' })
+    vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { bg = 'none' })
+    vim.api.nvim_set_hl(0, 'TelescopePreviewNormal', { bg = 'none' })
+    vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { bg = 'none' })
 
     require('telescope').setup {
 
@@ -30,7 +30,7 @@ return {
         },
       },
 
-                -- Pickers --
+      -- Pickers --
 
       pickers = {
         find_files = {
@@ -45,7 +45,7 @@ return {
         },
       },
 
-                -- Extensions --
+      -- Extensions --
 
       extensions = {
         ['ui-select'] = {
