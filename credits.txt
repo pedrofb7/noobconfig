@@ -1,2 +1,4 @@
-https://github.com/josean-dev/dev-environment-files/tree/main/.config/nvim
+Josean-dev = https://github.com/josean-dev/dev-environment-files/tree/main/.config/nvim
+ThePrimeagen = https://github.com/ThePrimeagen/init.lua
+Harry Dhillon = https://blog.harryy.dev/posts/make-yazi-change-your-directory/
 
