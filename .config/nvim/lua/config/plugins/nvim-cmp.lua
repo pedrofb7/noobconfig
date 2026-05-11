@@ -17,10 +17,11 @@ return {
   },
   config = function()
     local cmp = require 'cmp'
-
     local luasnip = require 'luasnip'
-
     local lspkind = require 'lspkind'
+
+    -- To use html snippets inside markdown files
+    luasnip.filetype_extend('markdown', { 'html' })
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require('luasnip.loaders.from_vscode').lazy_load()
@@ -34,13 +35,9 @@ return {
       mapping = {
         ['<CR>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            if luasnip.expandable() then
-              luasnip.expand()
-            else
-              cmp.confirm {
-                select = true,
-              }
-            end
+            cmp.confirm {
+              select = true,
+            }
           else
             fallback()
           end

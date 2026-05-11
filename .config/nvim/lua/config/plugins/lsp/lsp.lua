@@ -15,5 +15,10 @@ return {
     vim.lsp.config('*', {
       capabilities = capabilities,
     })
+
+    -- To enable html language server inside markdown files
+    vim.lsp.config('html', {
+      filetypes = { 'html', 'markdown' },
+    })
   end,
 }

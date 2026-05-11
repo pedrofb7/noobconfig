@@ -1,2 +1,5 @@
-This is my personal Neovim setup for productivity. I'll be adding a 
-better README and more stuff soon :)
+<h1 align=center>
+Noobconfig
+</h1>
+This is my personal Neovim setup for productivity
+
