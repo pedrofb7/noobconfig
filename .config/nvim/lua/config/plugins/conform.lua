@@ -12,6 +12,7 @@ return {
         rust = { 'rustywind' },
         sh = { 'shfmt' },
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        markdown = { 'prettier', 'markdown-toc', 'prettierd' },
       },
     }
 

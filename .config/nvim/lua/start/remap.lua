@@ -23,8 +23,8 @@ map('n', 'Q', '<Nop>', ' ')
 --- =============== -- Remapping -- ================= ---
 
 --Line navigation--
-map('n', '<leader>4', '$', 'Go to the end of the line')
-map('n', '<leader>-', '_', 'Go to the first character of the line')
+map({ 'n', 'v' }, '<leader>4', '$', 'Go to the end of the line')
+map({ 'n', 'v' }, '<leader>-', '_', 'Go to the first character of the line')
 
 -- Save and quit --
 map('n', '<C-S>', ':w<CR>', 'Save file')
