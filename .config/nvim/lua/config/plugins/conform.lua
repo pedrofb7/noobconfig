@@ -7,12 +7,14 @@ return {
 
       formatters_by_ft = {
 
+        c = { 'clang-format' },
+        cpp = { 'clang-format' },
         lua = { 'stylua' },
         python = { 'isort', 'black' },
         rust = { 'rustywind' },
         sh = { 'shfmt' },
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
-        markdown = { 'prettier', 'markdown-toc', 'prettierd' },
+        markdown = { 'prettier', 'prettierd' },
       },
     }
 

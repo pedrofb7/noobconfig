@@ -7,6 +7,7 @@ return {
         'cssls',
         'html',
         'lua_ls',
+        'neocmakelsp',
         'pyright',
         'ts_ls',
       },
